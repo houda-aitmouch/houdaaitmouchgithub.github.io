@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio de Houda AIT MOUCH</title>
+    <style>
+      :root {
+        --primary: #4a6fa5;
+        --secondary: #172a44;
+        --accent: #ff6b6b;
+        --light: #f5f5f5;
+        --dark: #333;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Section */
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 40px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header-text {
+        width: 60%;
+        z-index: 1;
+      }
+
+      .header-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 5px solid white;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .header-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: 0;
+      }
+
+      .circle-1 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        right: -50px;
+      }
+
+      .circle-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -100px;
+        left: 10%;
+      }
+
+      .name {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .title {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+
+      /* Navigation */
+      nav {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-link {
+        padding: 20px 25px;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+
+      .nav-link:hover::after {
+        width: 60%;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        display: inline-block;
+        padding-bottom: 10px;
+        position: relative;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3px;
+        background-color: var(--accent);
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .skills {
+        margin-top: 30px;
+      }
+
+      .skill-category {
+        margin-bottom: 20px;
+      }
+
+      .skill-category h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tag {
+        padding: 8px 15px;
+        background-color: #e1e8f0;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .skill-tag:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Education Section */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: #e1e8f0;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: 4px solid var(--primary);
+        border-radius: 50%;
+        top: 15px;
+        z-index: 1;
+      }
+
+      .left {
+        left: 0;
+      }
+
+      .right {
+        left: 50%;
+      }
+
+      .left::after {
+        right: -17px;
+      }
+
+      .right::after {
+        left: -17px;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .timeline-date {
+        font-size: 0.9rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .timeline-title {
+        font-size: 1.1rem;
+        margin: 10px 0;
+      }
+
+      .timeline-location {
+        font-size: 0.9rem;
+        color: #777;
+        font-style: italic;
+      }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-image {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        background-color: #e1e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary);
+        font-size: 3rem;
+      }
+
+      .project-content {
+        padding: 20px;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: var(--secondary);
+      }
+
+      .project-date {
+        font-size: 0.8rem;
+        color: #777;
+        margin-bottom: 15px;
+      }
+
+      .project-description {
+        margin-bottom: 15px;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .tech-tag {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        background-color: #e1e8f0;
+        border-radius: 15px;
+        color: var(--secondary);
+      }
+
+      /* Experience Section */
+      .experience-item {
+        margin-bottom: 40px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .experience-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        align-items: flex-start;
+      }
+
+      .job-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+
+      .company {
+        font-size: 1rem;
+        color: var(--primary);
+      }
+
+      .experience-date {
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      .experience-description ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .experience-description li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+
+      .experience-description li:before {
+        content: "•";
+        color: var(--accent);
+        font-size: 1.2rem;
+        position: absolute;
+        left: 5px;
+        top: -2px;
+      }
+
+      .technologies-used {
+        margin-top: 15px;
+      }
+
+      .technologies-used h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      /* Certifications Section */
+      .certifications-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .certification-card {
+        width: 300px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .certification-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .certification-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .certification-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .certification-issuer {
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      /* Contact Section */
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .contact-info-card {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .contact-info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-icon-large {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .contact-method {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .contact-detail {
+        color: var(--secondary);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--secondary);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .footer-social {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .social-icon:hover {
+        background-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+      }
+
+      .footer-copyright {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      section {
+        animation: fadeIn 1s ease-out;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .header-text {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item::after {
+          left: 15px;
+        }
+
+        .right {
+          left: 0;
+        }
+
+        .nav-container {
+          flex-wrap: wrap;
+        }
+
+        .nav-link {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="header-circle circle-1"></div>
+      <div class="header-circle circle-2"></div>
+      <div class="container header-content">
+        <div class="header-text">
+          <h1 class="name">Houda AIT MOUCH</h1>
+          <p class="title">
+            Étudiante en Data Science et Internet des Objets (IoT)
+          </p>
+          <p>
+            Passionnée par l'analyse de données et l'intelligence artificielle,
+            je cherche à appliquer mes compétences techniques dans des projets
+            innovants.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              <span>aitmouchhouda4@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+              <span>+212 7 61 80 54 37</span>
+            </div>
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                />
+              </svg>
+              <span>Rabat, Maroc</span>
+            </div>
+          </div>
+        </div>
+        <img
+          src="/Users/HouDa/Downloads/profile.JPG"
+          alt="Houda AIT MOUCH"
+          class="header-image"
+        />
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="container nav-container">
+        <a href="#about" class="nav-link">À Propos</a>
+        <a href="#education" class="nav-link">Formation</a>
+        <a href="#projects" class="nav-link">Projets</a>
+        <a href="#experience" class="nav-link">Expérience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>À Propos de Moi</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Étudiante en 2e année en Data Science et Internet des Objets (IoT)
+              à l'ENSIAS, je suis à la recherche d'un stage de deux mois en Data
+              Science ou Intelligence Artificielle.
+            </p>
+            <p>
+              Dotée d'une curiosité intellectuelle et d'une rigueur analytique,
+              je souhaite mettre à profit mes compétences techniques dans un
+              environnement innovant où je pourrai contribuer à des projets
+              concrets tout en développant mon expertise.
+            </p>
+
+            <div class="skills">
+              <div class="skill-category">
+                <h3>Machine Learning & Data Science</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Scikit-Learn</span>
+                  <span class="skill-tag">TensorFlow</span>
+                  <span class="skill-tag">Keras</span>
+                  <span class="skill-tag">NumPy</span>
+                  <span class="skill-tag">Pandas</span>
+                  <span class="skill-tag">R</span>
+                  <span class="skill-tag">Power BI</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Développement Web & Mobile</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">HTML</span>
+                  <span class="skill-tag">CSS</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">Java</span>
+                  <span class="skill-tag">PHP</span>
+                  <span class="skill-tag">React JS</span>
+                  <span class="skill-tag">Laravel</span>
+                  <span class="skill-tag">J2EE</span>
+                  <span class="skill-tag">Android Studio</span>
+                  <span class="skill-tag">Tailwind]</span>
+                  <span class="skill-tag">Bootstrap</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>Bases de Données</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">Oracle</span>
+                  <span class="skill-tag">SQLite</span>
+                  <span class="skill-tag">MongoDB</span>
+                  <span class="skill-tag">Neo4j</span>
+                  <span class="skill-tag">Cassandra</span>
+                  <span class="skill-tag">Firebase</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h3>DevOps & Administration Système</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Docker</span>
+                  <span class="skill-tag">Kubernetes</span>
+                  <span class="skill-tag">Jenkins</span>
+                  <span class="skill-tag">Linux/Unix</span>
+                  <span class="skill-tag">Git</span>
+                </div>
+              </div>
+              <div class="skill-category">
+                <h3>
+                  Cryptographie & Sécurité des systèmes informatiques et réseaux
+                </h3>
+              </div>
+
+              <div class="skill-category">
+                <h3>Langues</h3>
+                <div class="skill-tags">
+                  <span class="skill-tag">Arabe (langue maternelle)</span>
+                  <span class="skill-tag">Français (courant)</span>
+                  <span class="skill-tag">Anglais (courant)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background-color: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Formation</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - présent</div>
+              <h3 class="timeline-title">
+                Diplôme d'Ingénieur d'État en Data Science et IoT
+              </h3>
+              <p class="timeline-location">
+                École Nationale Supérieure d'Informatique et d'Analyse des
+                Systèmes (ENSIAS), Rabat
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-date">2021 - 2023</div>
+              <h3 class="timeline-title">
+                Classes Préparatoires aux Grandes Écoles | Physique et Sciences
+                Industrielles
+              </h3>
+              <p class="timeline-location">CPGE Ibn Timiya, Marrakech</p>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">2021</div>
+              <h3 class="timeline-title">
+                Baccalauréat International section langue française | Sciences
+                Mathématiques B
+              </h3>
+              <p class="timeline-location">Lycée Moulay Idriss, Fès</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projets Académiques & Techniques</h2>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H5M9,8H11V10H13V12H11V14H9V12H7V10H9V8M17,8H19V14H17V8M13,16H17V18H13V16Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Détection des Menaces Internes via NoSQL & Machine Learning
+              </h3>
+              <div class="project-date">Mars - Avril 2025</div>
+              <p class="project-description">
+                Conception d'un système de détection des comportements anormaux
+                dans les systèmes d'information utilisant des bases de données
+                graphes pour modéliser les interactions utilisateurs/systèmes.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Neo4j</span>
+                <span class="tech-tag">Cassandra</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Cypher</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M12,19A1,1 0 0,1 11,18A1,1 0 0,1 12,17A1,1 0 0,1 13,18A1,1 0 0,1 12,19M7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12M12,5A7,7 0 0,1 19,12A7,7 0 0,1 12,19A7,7 0 0,1 5,12A7,7 0 0,1 12,5M12,1A11,11 0 0,0 1,12A11,11 0 0,0 12,23A11,11 0 0,0 23,12A11,11 0 0,0 12,1Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Gestion Intelligente des Serres Agricoles
+              </h3>
+              <div class="project-date">Février 2025 - présent</div>
+              <p class="project-description">
+                Développement d'un système IoT pour surveiller et optimiser les
+                paramètres climatiques dans les serres agricoles avec
+                intégration de modèles prédictifs.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H5M9,8H11V10H13V12H11V14H9V12H7V10H9V8M17,8H19V14H17V8M13,16H17V18H13V16Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Prédiction de Prêts Bancaires</h3>
+              <div class="project-date">Février 2025</div>
+              <p class="project-description">
+                Création d'un pipeline complet de machine learning pour
+                l'évaluation automatique de demandes de prêts basée sur des
+                données historiques.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Flask</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Détection d'Équipements de Protection Individuelle
+              </h3>
+              <div class="project-date">Janvier - Février 2025</div>
+              <p class="project-description">
+                Développement d'un système de vision par ordinateur pour
+                détecter en temps réel le port d'EPI utilisant YOLOv8 pour
+                l'analyse de flux vidéo.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">YOLO</span>
+                <span class="tech-tag">Numpy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Application Mobile pour Agents Immobiliers
+              </h3>
+              <div class="project-date">Janvier - Mars 2025</div>
+              <p class="project-description">
+                Développement d'une application Android pour la gestion des
+                biens immobiliers en location avec une interface intuitive pour
+                agents et clients.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Android Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M12,3L1,9L12,15L21,10.09V17H23V9L12,3M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Plateforme de Support pour Investisseurs Immobiliers
+              </h3>
+              <div class="project-date">Octobre 2024 - Février 2025</div>
+              <p class="project-description">
+                Conception d'une plateforme web pour l'évaluation de projets
+                urbains et immobiliers avec un système de dépôt et d'analyse en
+                ligne.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">J2EE</span>
+                <span class="tech-tag">UML</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H16L12,22L8,18H4A2,2 0 0,1 2,16V4A2,2 0 0,1 4,2M4,4V16H8.83L12,19.17L15.17,16H20V4H4Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Plateforme de Gestion Immobilière</h3>
+              <div class="project-date">Février - Mai 2024</div>
+              <p class="project-description">
+                Développement d'une solution web pour optimiser la recherche,
+                publication et administration de biens immobiliers avec
+                fonctionnalités avancées de filtrage.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <svg viewBox="0 0 24 24" width="60" height="60">
+                <path
+                  fill="currentColor"
+                  d="M16,11H13V8L8,13L13,18V15H16M2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12Z"
+                />
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Système de Porte Coupe-feu Intelligent
+              </h3>
+              <div class="project-date">Décembre 2022 - Mars 2023</div>
+              <p class="project-description">
+                Conception d'un système automatisé intégrant détection de gaz,
+                alarmes incendie et verrous électromagnétiques pour prévenir la
+                propagation du feu.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Capteurs IoT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Expérience Professionnelle</h2>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="job-title">
+                Stagiaire - Développeur d'applications web
+              </div>
+              <div class="company">
+                AMDL – Agence Marocaine de Développement de la Logistique, Rabat
+              </div>
+            </div>
+            <div class="experience-date">Août - Septembre 2024</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>
+                Développement d'une plateforme numérique complète de gestion des
+                ressources humaines, permettant d'optimiser la gestion des
+                employés, les demandes de congés, les autorisations d'absence
+                ainsi que la structure organisationnelle.
+              </li>
+              <li>
+                Amélioration de la communication entre les employés et le
+                service RH, en assurant une soumission, un traitement et une
+                approbation efficaces des demandes.
+              </li>
+              <li>
+                Optimisation de l'administration du personnel et de l'efficacité
+                opérationnelle.
+              </li>
+            </ul>
+            <div class="technologies-used">
+              <h4>Technologies utilisées:</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Tailwind</span>
+                <span class="skill-tag">Laravel</span>
+                <span class="skill-tag">PhpMyAdmin</span>
+                <span class="skill-tag">Apache</span>
+                <span class="skill-tag">XAMPP</span>
+                <span class="skill-tag">UML</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Excalidraw</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <div class="container">
+        <div class="section-title">
+          <h2>Certifications</h2>
+        </div>
+
+        <div class="certifications-container">
+          <div class="certification-card">
+            <div class="certification-icon">🏆</div>
+            <div class="certification-title">Fundamentals of Kubernetes</div>
+            <div class="certification-issuer">DataScientist.fr</div>
+          </div>
+
+          <div class="certification-card">
+            <div class="certification-icon">🏆</div>
+            <div class="certification-title">Introduction to Docker</div>
+            <div class="certification-issuer">DataScientist.fr</div>
+          </div>
+
+          <div class="certification-card">
+            <div class="certification-icon">📊</div>
+            <div class="certification-title">Data Visualization</div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+
+          <div class="certification-card">
+            <div class="certification-icon">🐍</div>
+            <div class="certification-title">
+              Scientific Computing with Python
+            </div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+
+          <div class="certification-card">
+            <div class="certification-icon">🧩</div>
+            <div class="certification-title">
+              JavaScript Algorithms and Data Structures
+            </div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+
+          <div class="certification-card">
+            <div class="certification-icon">🖥️</div>
+            <div class="certification-title">Responsive Web Design</div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f9f9f9">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info-card">
+            <div class="contact-icon-large">📧</div>
+            <div class="contact-method">Email</div>
+            <div class="contact-detail">aitmouchhouda4@gmail.com</div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon-large">📞</div>
+            <div class="contact-method">Téléphone</div>
+            <div class="contact-detail">+212 7 61 80 54 37</div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-icon-large">💼</div>
+            <div class="contact-method">LinkedIn</div>
+            <div class="contact-detail">Houda AIT MOUCH</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <h3>Houda AIT MOUCH</h3>
+          <p>Data Science & IoT Engineer</p>
+
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer-copyright">
+            &copy; 2025 Houda AIT MOUCH. Tous droits réservés.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add active class to navigation links on scroll
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").substring(1) === current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
